@@ -48,6 +48,13 @@ I designed TraceLite around an **open-core model**:
 
 ## Demo
 
+TraceLite AI features a modern, responsive web application styled with **Space Grotesk typography**, glassmorphic card elements, a floating top Navbar, and a persistent Footer with 5 dedicated sections:
+- **🔍 Log Investigator:** Live triage console, one-click fixtures, stack trace isolation, and Markdown exporter.
+- **🚀 Architecture:** Interactive breakdown of the bounded evidence packaging pipeline.
+- **📖 Docs & CLI:** Setup instructions, `demo_app.py` walkthrough, and automated testing guide.
+- **💼 Side Hustle & Pricing:** Comparison between the free Community Core and the paid Team Convenience Layer ($15/seat/mo).
+- **🛡️ Privacy Engine:** Deep-dive into automated regex masking of API keys, tokens, and database passwords.
+
 Here is how the end-to-end investigation workflow looks in practice:
 
 ### 1. The Demo Scenario
