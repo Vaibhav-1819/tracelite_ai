@@ -57,24 +57,24 @@ TraceLite AI features a modern, responsive web application styled with **Space G
 
 Here is how the end-to-end investigation workflow looks in practice:
 
-### 1. The Demo Scenario
-Inside the repo, I included a intentionally broken billing script (`demo_app.py`) that triggers an unhandled `ZeroDivisionError` while processing batch invoices with zero billable units:
+### 1. Ingesting Logs & Isolating Errors
+Paste raw logs, upload a file, or click a sample fixture. TraceLite instantly runs secret masking, isolates the primary error in a clear red banner, and prepares the triage report:
 
-```python
-def calculate_average_discount(invoices, total_units):
-    total_discount_amount = sum(inv.get("discount", 0.0) for inv in invoices)
-    # The culprit: no zero-check on total_units
-    discount_ratio = total_discount_amount / total_units
-    return discount_ratio
-```
+![Raw log input and isolated error banner](https://raw.githubusercontent.com/Vaibhav-1819/tracelite_ai/main/images/logs.png)
 
-### 2. What TraceLite Does With It
-- **Secret Redaction:** The script logged an authorization token (`sk-9f82...`). TraceLite masked it to `[REDACTED_OPENAI_KEY]` before rendering or passing to AI.
-- **Trace Extraction:** It pinned down line 26 of `demo_app.py` as the first meaningful exception, skipping all surrounding worker heartbeat lines.
-- **AI Investigation:** The local 0.5B model deduced that `total_units` resolved to 0 because the mock dataset only contained zero-unit invoices, and suggested adding a guard check (`if total_units > 0:`).
-- **Export:** In one click, I downloaded a Markdown report with the full reproduction context.
+### 2. Deterministic Metrics & Stack Trace Extraction
+The engine parses multi-language stack traces (Python, Java JVM, Node.js, Go), computes line-by-line metrics, and reveals surrounding context lines:
 
-### 3. Running It Yourself
+![Deterministic metrics and stack trace extraction](https://raw.githubusercontent.com/Vaibhav-1819/tracelite_ai/main/images/analysis.png)
+
+### 3. AI Investigation & Diagnostic Checklist
+The local open-weight model (`Qwen2.5-0.5B`) provides plain-language explanations, identifies plausible root causes, and generates an ordered diagnostic checklist:
+
+![AI Investigation and diagnostic checklist](https://raw.githubusercontent.com/Vaibhav-1819/tracelite_ai/main/images/checklist.png)
+
+---
+
+### Running It Yourself
 You don't need a GPU. It runs on any standard laptop:
 
 ```bash
@@ -104,7 +104,7 @@ The entire codebase is open-source under the MIT license:
 - [`tracelite/parser.py`](https://github.com/Vaibhav-1819/tracelite_ai/blob/main/tracelite/parser.py): The deterministic regex engine that parses Python, Java (JVM stack traces with `Caused by:`), JavaScript/Node.js, and Go panics.
 - [`tracelite/masker.py`](https://github.com/Vaibhav-1819/tracelite_ai/blob/main/tracelite/masker.py): The privacy filter catching AWS keys, Bearer tokens, DB credentials, and API secrets.
 - [`tracelite/ai_client.py`](https://github.com/Vaibhav-1819/tracelite_ai/blob/main/tracelite/ai_client.py): Ollama integration with bounded evidence packaging and deterministic offline fallback.
-- [`app.py`](https://github.com/Vaibhav-1819/tracelite_ai/blob/main/app.py): The Streamlit web interface styled with custom dark-mode glassmorphic cards.
+- [`app.py`](https://github.com/Vaibhav-1819/tracelite_ai/blob/main/app.py): The Streamlit web interface styled with Space Grotesk typography and custom glassmorphism.
 - [`tests/`](https://github.com/Vaibhav-1819/tracelite_ai/tree/main/tests): 11 unit tests covering all parsers and failure edge cases (`pytest` passes 100%).
 
 ---
