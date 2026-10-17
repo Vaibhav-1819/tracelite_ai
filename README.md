@@ -93,7 +93,7 @@ When applications crash, developers are often confronted with massive walls of l
 Clone this repository and install dependencies:
 
 ```bash
-git clone https://github.com/vaibhav/tracelite-ai.git
+git clone https://github.com/Vaibhav-1819/tracelite_ai.git
 cd tracelite-ai
 
 # Install dependencies

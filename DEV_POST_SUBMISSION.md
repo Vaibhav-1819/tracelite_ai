@@ -77,6 +77,6 @@ When piped into TraceLite AI:
 
 ## Repository & Links
 
-- **GitHub Repository:** [https://github.com/vaibhav/tracelite-ai](https://github.com/vaibhav/tracelite-ai)
+- **GitHub Repository:** [https://github.com/Vaibhav-1819/tracelite_ai](https://github.com/Vaibhav-1819/tracelite_ai)
 - **License:** MIT License
 - **Fixtures & Demos:** Included in `/fixtures` and `demo_app.py`
