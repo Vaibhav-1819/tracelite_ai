@@ -1,0 +1,14 @@
+2026-10-18T14:22:10.012Z [main] INFO org.springframework.boot.Startup - Starting CustomerPortalApplication v2.4.1
+2026-10-18T14:22:11.450Z [main] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-10-18T14:22:12.800Z [http-nio-8080-exec-1] INFO com.portal.controller.CustomerController - Processing GET request for /api/v1/customers/c81f3e79-84b2-4d29-b68a-2e409dc592a1
+2026-10-18T14:22:12.850Z [http-nio-8080-exec-1] DEBUG com.portal.repository.CustomerRepository - Executing query for customer UUID c81f3e79-84b2-4d29-b68a-2e409dc592a1
+2026-10-18T14:22:12.890Z [http-nio-8080-exec-1] WARN com.portal.service.CacheService - Cache miss for customer:c81f3e79-84b2-4d29-b68a-2e409dc592a1
+2026-10-18T14:22:12.910Z [http-nio-8080-exec-1] ERROR org.apache.catalina.core.ContainerBase - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+java.lang.NullPointerException: Cannot invoke "com.portal.model.Address.getPostalCode()" because the return value of "com.portal.model.Customer.getShippingAddress()" is null
+	at com.portal.service.ShippingCalculator.calculateTaxRate(ShippingCalculator.java:78)
+	at com.portal.service.CustomerService.enrichCustomerDetails(CustomerService.java:124)
+	at com.portal.controller.CustomerController.getCustomerProfile(CustomerController.java:55)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+2026-10-18T14:22:12.920Z [http-nio-8080-exec-1] ERROR com.portal.handler.GlobalExceptionHandler - Handled uncaught exception returning HTTP 500

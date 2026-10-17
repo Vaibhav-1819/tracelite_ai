@@ -1,0 +1,14 @@
+2026-10-18 10:14:01,102 [INFO] app.server: Starting billing calculation service on worker-04...
+2026-10-18 10:14:02,415 [INFO] app.services.billing: Fetching pending invoices for batch_id=74829
+2026-10-18 10:14:03,889 [DEBUG] app.db.pool: Acquired connection 0x7fa92b40 from pool (active: 3, idle: 7)
+2026-10-18 10:14:04,120 [INFO] app.services.billing: Loaded 14 invoices for organization 'Acme Corp'
+2026-10-18 10:14:04,125 [DEBUG] app.services.billing: Calculating discount tier for user_id=1092 with auth_token=sk-9f82a7b3c4d5e6f1a2b3c4d5e6f7a8b9
+2026-10-18 10:14:04,130 [ERROR] app.services.billing: Unexpected crash during invoice discount calculation!
+Traceback (most recent call last):
+  File "/app/services/billing.py", line 142, in process_batch
+    total_effective_rate = calculate_average_discount(invoices, total_units)
+  File "/app/services/billing.py", line 87, in calculate_average_discount
+    discount_ratio = total_discount_amount / total_units
+ZeroDivisionError: division by zero
+2026-10-18 10:14:04,140 [CRITICAL] app.server: Worker worker-04 encountered unhandled exception. Terminating transaction.
+2026-10-18 10:14:04,145 [INFO] app.services.billing: Batch 74829 marked as FAILED in database
