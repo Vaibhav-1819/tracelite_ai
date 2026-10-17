@@ -2,6 +2,7 @@
 title: How I Built TraceLite AI: A Local-First Debugging Assistant That Saves You From Log Hell
 published: false
 tags: devchallenge, hf26challenge, opensource, ai
+cover_image: https://raw.githubusercontent.com/Vaibhav-1819/tracelite_ai/main/tracelite_cover.jpg
 ---
 
 *This is a submission for the [Hacktoberfest Open-Source AI Challenge Week 2: Side Hustle](https://dev.to/challenges/hacktoberfest-week2-2026-10-12)*
@@ -137,11 +138,18 @@ To test TraceLite in the real world, I asked an indie developer friend to test-d
 
 ---
 
+## Over to You: Let's Discuss in the Comments!
+
+I'd love to hear your thoughts and war stories:
+- **What is the nastiest, most cryptic stack trace you’ve had to troubleshoot recently?**
+- **Have you experimented with small open-weight models (like Qwen2.5 0.5B or Llama 3.2 1B) for local development tools?**
+- **What integration would you find most useful:** a VS Code extension, a GitHub Actions PR bot, or a CLI pipe (`my_cmd 2>&1 | tracelite`)?
+
+If you found this project helpful or interesting, feel free to **share it with your team, coworkers, or developer community**, and star the repo on **[GitHub](https://github.com/Vaibhav-1819/tracelite_ai)**! Drop any questions or feedback below—I'll be hanging out in the comments to reply to every single one.
+
+---
+
 ## Prize Categories
 
 - **Primary Track:** Hacktoberfest Open-Source AI Challenge Week 2 — Side Hustle
 - **Open-Source Innovation Track:** Demonstrating practical, local-first inference using `Qwen2.5-0.5B-Instruct` on everyday hardware with zero API fees.
-
----
-
-*Thanks for checking out TraceLite AI! Feel free to star or contribute on [GitHub](https://github.com/Vaibhav-1819/tracelite_ai).*
